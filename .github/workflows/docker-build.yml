@@ -7,7 +7,18 @@ on:
     branches:
       - master
 jobs:
-  build:
+  terraform:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+      - name: Terraform Init and Apply
+        run: |
+          terraform init
+          terraform apply -auto-approve
+  docker:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
