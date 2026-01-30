@@ -20,6 +20,7 @@ jobs:
           terraform apply -auto-approve
   docker:
     runs-on: ubuntu-latest
+    needs: terraform
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
