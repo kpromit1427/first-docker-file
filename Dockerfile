@@ -24,7 +24,7 @@ COPY . .
 # Install the necessary packages
 RUN apt-get update && apt-get install -y python3 python3-pip
 #multistage for reduced image size
-FROM python:3.11-slim
+FROM gcr.io/distroless/python3
 
 WORKDIR /app
 
